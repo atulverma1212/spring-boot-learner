@@ -2,6 +2,7 @@ package com.airtel.ytl.controller;
 
 import com.airtel.ytl.dto.*;
 import com.airtel.ytl.service.BusinessClass;
+import com.airtel.ytl.service.FileWriterClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,9 @@ public class HomeController {
     // TODO: Exception handling in APIs
     @Autowired
     private BusinessClass businessClass;
+
+    @Autowired
+    FileWriterClass fileWriterClass;
 
     /**
      * A simple Health GET API, ping-pong
@@ -59,6 +63,18 @@ public class HomeController {
         ListToStringResponse response = new ListToStringResponse();
         String string = businessClass.listToString(request.getList());
         response.setConcatenatedString(string);
+        return ResponseEntity.ok(response);
+    }
+
+    // TODO: convert List<List<String>> to separate list of strings and append them in a file
+    // i/p:[["My", "Name","is","Name1"],["My", "Name","is","Name2"],["My", "Name","is","Name3"]]
+    // o/p: My Name is Name1\nMy Name is Name2\nMy Name is Name3\n
+
+    @RequestMapping(value = "/ytl/writeInfile", method = RequestMethod.POST)
+    public ResponseEntity<SaveInFileResponse> writeInFile(@RequestBody SaveInFileRequest request) {
+        SaveInFileResponse response = new SaveInFileResponse();
+        String replyFromFileWriter = fileWriterClass.writeFile(request.getMatrix());
+        response.setResponse(replyFromFileWriter);
         return ResponseEntity.ok(response);
     }
 }
