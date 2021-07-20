@@ -18,7 +18,7 @@ public class FileWriterClass {
 
         {
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("ResponseFileOfAPI.txt", true));
+                BufferedWriter writer = new BufferedWriter(new FileWriter("ResponseFile.txt", true));
 
                 for (String line : list) {
                     writer.append(line);
@@ -32,5 +32,6 @@ public class FileWriterClass {
             }
         }
     }
+
 
 }

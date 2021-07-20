@@ -30,18 +30,6 @@ public class BusinessClass {
         return out;
     }
 
-/*
-    public List<String> matrixToListOfString(List<List<String>> matrix) {
-        List<String> out = new ArrayList<>() ;
-        for(List<String> list : matrix) {
-            out.addAll(list);
-        }
-        return out;
-    }
-
-*/
-
-
 
 
 }
