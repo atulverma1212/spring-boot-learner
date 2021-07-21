@@ -1,0 +1,131 @@
+2021-07-21 18:11:41 ERROR main SpringApplication - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - 'FileNamePattern' option has the same value "logs//logs/mitra_login.%d{yyyy-MM-dd}.log" as that given for appender [log_appender] defined earlier.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - Collisions detected with FileAppender/RollingAppender instances defined earlier. Aborting.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - For more information, please visit http://logback.qos.ch/codes.html#earlier_fa_collision
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:328)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:282)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:240)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:82)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:63)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:117)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:111)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:62)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:374)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:332)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.airtel.ytl.YtlApplication.main(YtlApplication.java:12)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - 'FileNamePattern' option has the same value "logs//logs/mitra_login.%d{yyyy-MM-dd}.log" as that given for appender [log_appender] defined earlier.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - Collisions detected with FileAppender/RollingAppender instances defined earlier. Aborting.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - For more information, please visit http://logback.qos.ch/codes.html#earlier_fa_collision
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:179)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:232)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:73)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:132)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:313)
+	... 18 common frames omitted
+2021-07-21 18:12:00 ERROR main SpringApplication - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - 'FileNamePattern' option has the same value "logs/logs/mitra_login.%d{yyyy-MM-dd}.log" as that given for appender [log_appender] defined earlier.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - Collisions detected with FileAppender/RollingAppender instances defined earlier. Aborting.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - For more information, please visit http://logback.qos.ch/codes.html#earlier_fa_collision
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:328)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:282)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:240)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:82)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:63)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:117)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:111)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:62)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:374)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:332)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.airtel.ytl.YtlApplication.main(YtlApplication.java:12)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - 'FileNamePattern' option has the same value "logs/logs/mitra_login.%d{yyyy-MM-dd}.log" as that given for appender [log_appender] defined earlier.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - Collisions detected with FileAppender/RollingAppender instances defined earlier. Aborting.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - For more information, please visit http://logback.qos.ch/codes.html#earlier_fa_collision
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:179)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:232)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:73)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:132)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:313)
+	... 18 common frames omitted
+2021-07-21 18:12:18 ERROR main SpringApplication - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - 'FileNamePattern' option has the same value "logs/mitra_login.%d{yyyy-MM-dd}.log" as that given for appender [log_appender] defined earlier.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - Collisions detected with FileAppender/RollingAppender instances defined earlier. Aborting.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - For more information, please visit http://logback.qos.ch/codes.html#earlier_fa_collision
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:328)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:282)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:240)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:82)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:63)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:117)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:111)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:62)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:374)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:332)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.airtel.ytl.YtlApplication.main(YtlApplication.java:12)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - 'FileNamePattern' option has the same value "logs/mitra_login.%d{yyyy-MM-dd}.log" as that given for appender [log_appender] defined earlier.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - Collisions detected with FileAppender/RollingAppender instances defined earlier. Aborting.
+ERROR in ch.qos.logback.core.rolling.RollingFileAppender[log_appender-2] - For more information, please visit http://logback.qos.ch/codes.html#earlier_fa_collision
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:179)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:232)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:73)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:132)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:313)
+	... 18 common frames omitted
+2021-07-21 18:12:48 INFO  main StartupInfoLogger - Starting YtlApplication using Java 11.0.11 on ltb0224049-mac with PID 4105 (/Users/b0224049/code.airtelworld.in/ytl/target/classes started by b0224049 in /Users/b0224049/code.airtelworld.in/ytl)
+2021-07-21 18:12:48 INFO  main SpringApplication - No active profile set, falling back to default profiles: default
+2021-07-21 18:12:49 INFO  main TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-07-21 18:12:49 INFO  main DirectJDKLog - Initializing ProtocolHandler ["http-nio-8080"]
+2021-07-21 18:12:49 INFO  main DirectJDKLog - Starting service [Tomcat]
+2021-07-21 18:12:49 INFO  main DirectJDKLog - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-21 18:12:49 INFO  main DirectJDKLog - Initializing Spring embedded WebApplicationContext
+2021-07-21 18:12:49 INFO  main ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1011 ms
+2021-07-21 18:12:49 INFO  main DirectJDKLog - Starting ProtocolHandler ["http-nio-8080"]
+2021-07-21 18:12:49 INFO  main TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-21 18:12:50 INFO  main StartupInfoLogger - Started YtlApplication in 2.084 seconds (JVM running for 3.469)
+2021-07-21 18:13:01 INFO  main StartupInfoLogger - Starting YtlApplication using Java 11.0.11 on ltb0224049-mac with PID 4122 (/Users/b0224049/code.airtelworld.in/ytl/target/classes started by b0224049 in /Users/b0224049/code.airtelworld.in/ytl)
+2021-07-21 18:13:01 INFO  main SpringApplication - No active profile set, falling back to default profiles: default
+2021-07-21 18:13:02 INFO  main TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-07-21 18:13:02 INFO  main DirectJDKLog - Initializing ProtocolHandler ["http-nio-8080"]
+2021-07-21 18:13:02 INFO  main DirectJDKLog - Starting service [Tomcat]
+2021-07-21 18:13:02 INFO  main DirectJDKLog - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-21 18:13:02 INFO  main DirectJDKLog - Initializing Spring embedded WebApplicationContext
+2021-07-21 18:13:02 INFO  main ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1045 ms
+2021-07-21 18:13:02 INFO  main DirectJDKLog - Starting ProtocolHandler ["http-nio-8080"]
+2021-07-21 18:13:02 INFO  main TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-21 18:13:02 INFO  main StartupInfoLogger - Started YtlApplication in 2.112 seconds (JVM running for 2.991)
+2021-07-21 18:13:14 INFO  http-nio-8080-exec-1 DirectJDKLog - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-21 18:13:14 INFO  http-nio-8080-exec-1 FrameworkServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-21 18:13:14 INFO  http-nio-8080-exec-1 FrameworkServlet - Completed initialization in 4 ms
+2021-07-21 18:13:14 INFO  http-nio-8080-exec-1 HomeController - Hit came at ping API

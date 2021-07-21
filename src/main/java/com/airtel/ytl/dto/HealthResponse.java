@@ -13,7 +13,6 @@ public class HealthResponse {
     }
 
     public void setResponse(String response) {
-        System.out.println("Setting response to : " + response);
         this.response = response;
     }
 
