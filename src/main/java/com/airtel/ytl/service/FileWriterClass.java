@@ -14,13 +14,14 @@ public class FileWriterClass {
 
     public String writeFile(List<List<String>> matrix) {
 
-        List<String> list = businessClass.matrixToList(matrix);
+        //List<String> list = businessClass.matrixToList(matrix);
 
         {
             try {
                 BufferedWriter writer = new BufferedWriter(new FileWriter("ResponseFile.txt", true));
 
-                for (String line : list) {
+                for (List<String> list : matrix) {
+                    String line = businessClass.listToString(list);
                     writer.append(line);
                     writer.newLine();
                 }

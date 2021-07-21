@@ -26,6 +26,7 @@ public class BusinessClass {
         String out = "" ;
         for(String str: list) {
             out+= str;
+            out+=" ";
         }
         return out;
     }
