@@ -1,9 +1,10 @@
 package com.airtel.ytl.controller;
 
-import com.airtel.ytl.dto.HealthResponse;
-import com.airtel.ytl.dto.SortArrayRequest;
-import com.airtel.ytl.dto.SortArrayResponse;
+import com.airtel.ytl.dto.*;
 import com.airtel.ytl.service.BusinessClass;
+import  com.airtel.ytl.service.FileWriterClass;
+import jdk.nashorn.internal.ir.RuntimeNode;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,8 @@ public class HomeController {
     @Autowired
     private BusinessClass businessClass;
 
+    @Autowired
+    private FileWriterClass fileWriterClass;
     /**
      * A simple Health GET API, ping-pong
      */
@@ -44,7 +47,32 @@ public class HomeController {
 
     // TODO: Make an API for transforming Matrix into List
     // List<List<Integer>> to List<Integer>
+    @RequestMapping(value = "/ytl/matrixToList", method = RequestMethod.POST)
+    public ResponseEntity<MatrixToListResponse> toList(@RequestBody MatrixToListRequest request){
+        MatrixToListResponse response =new MatrixToListResponse();
+        List<Integer> transformedArray= businessClass.matrixToList(request.getMatrix());
+        response.setArr(transformedArray);
+        return ResponseEntity.ok(response);
+    }
 
-    // TODO: List<String> : ["My", "NAme","is","Ankush"]
-    // return "My Name is Ankush"
+    /**
+     *  TODO: List<String> : ["My", "NAme","is","Ankush"]
+      *  return "My Name is Ankush"
+     */
+      @RequestMapping(value = "/ytl/listToString", method = RequestMethod.POST)
+      public ResponseEntity<ListofStringResponse> listToString(@RequestBody ListofStringRequest request){
+          ListofStringResponse response=new ListofStringResponse();
+          String returnString= businessClass.ListofStringToString(request.getStringList());
+          response.setStringResponse(returnString);
+          return ResponseEntity.ok(response);
+      }
+
+      @RequestMapping(value = "/ytl/fileWriter",method = RequestMethod.POST)
+      public ResponseEntity<SaveToFileResponse> fileToString(@RequestBody SaveToFileRequest request){
+          SaveToFileResponse response= new SaveToFileResponse();
+          String output=fileWriterClass.writeFile(request.getList());
+          response.setOutputFile(output);
+          return ResponseEntity.ok(response);
+      }
+
 }

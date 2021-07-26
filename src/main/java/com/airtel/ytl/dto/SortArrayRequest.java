@@ -10,6 +10,7 @@ public class SortArrayRequest {
         return array;
     }
 
+
     public void setArray(List<Integer> array) {
         this.array = array;
     }
