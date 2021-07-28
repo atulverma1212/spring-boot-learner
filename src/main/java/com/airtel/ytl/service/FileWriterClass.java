@@ -1,6 +1,8 @@
 package com.airtel.ytl.service;
+import com.airtel.ytl.constants.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -12,14 +14,15 @@ public class FileWriterClass {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    BusinessClass businessClass = new BusinessClass();
+    @Autowired
+    BusinessClass businessClass;
 
     public String writeFile(List<List<String>> matrix) {
 
         //List<String> list = businessClass.matrixToList(matrix);
-        {
+
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("ResponseFile.txt", true));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(Constants.filename, true));
                 for (List<String> list : matrix) {
                     String line = businessClass.listToString(list);
                     writer.append(line);
@@ -33,7 +36,7 @@ public class FileWriterClass {
                 logger.error("In catch block, some error occurred");
                 return "Some Error Occurred";
             }
-        }
+
     }
 
 

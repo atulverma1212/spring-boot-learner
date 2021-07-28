@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 public class YtlApplication {
 
 	public static void main(String[] args) {
-		System.out.println( "YTL Application is running now" );
 		SpringApplication.run(YtlApplication.class, args);
 	}
 

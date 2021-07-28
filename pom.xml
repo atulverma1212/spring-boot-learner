@@ -39,6 +39,24 @@
 			<version>RELEASE</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<!--&lt;!&ndash; for supporting xml type content &ndash;&gt;-->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+<!--
+		&lt;!&ndash; for Jackson Support &ndash;&gt;
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>-->
+
 	</dependencies>
 
 	<build>

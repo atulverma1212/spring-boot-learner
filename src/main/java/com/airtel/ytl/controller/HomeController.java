@@ -5,11 +5,9 @@ import com.airtel.ytl.service.BusinessClass;
 import com.airtel.ytl.service.FileWriterClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -71,12 +69,22 @@ public class HomeController {
     // o/p: My Name is Name1\nMy Name is Name2\nMy Name is Name3\n
 
 
-
-    @RequestMapping(value = "/ytl/writeInfile", method = RequestMethod.POST)
+    @RequestMapping(value = "/ytl/writeInfile", method = RequestMethod.POST,
+            consumes = {"application/json", "application/xml"})
     public ResponseEntity<SaveInFileResponse> writeInFile(@RequestBody SaveInFileRequest request) {
         SaveInFileResponse response = new SaveInFileResponse();
         String replyFromFileWriter = fileWriterClass.writeFile(request.getMatrix());
         response.setResponse(replyFromFileWriter);
+        return ResponseEntity.ok(response);
+    }
+
+    // TODO: return ResponseFile.txt as JSON
+
+    @GetMapping(value = "/ytl/printResponseText")
+    public ResponseEntity<RetrieveFileResponse> retrieveFile() throws IOException {
+        RetrieveFileResponse response = new RetrieveFileResponse();
+        List<String> lines = businessClass.setResponseToList();
+        response.setResponse(lines);
         return ResponseEntity.ok(response);
     }
 }
