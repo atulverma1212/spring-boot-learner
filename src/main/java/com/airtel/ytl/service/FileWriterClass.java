@@ -12,8 +12,7 @@ import java.io.IOException;
 public class FileWriterClass {
      BusinessClass businessClass=new BusinessClass();
 
-     public String writeFile(List<List<String>> matrix) {
-         {
+     public String writeFile(List<List<String>> matrix){
              try {
                  BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt", true));
 
@@ -27,6 +26,5 @@ public class FileWriterClass {
              } catch (IOException e) {
                  return "Some fault occured";
              }
-         }
      }
 }

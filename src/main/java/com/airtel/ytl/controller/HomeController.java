@@ -75,4 +75,11 @@ public class HomeController {
           return ResponseEntity.ok(response);
       }
 
+      @RequestMapping(value = "ytl/divideUsingInput",method = RequestMethod.POST)
+      public ResponseEntity<OutputToInput> divideThroughInput(@RequestBody InputRequest request){
+          OutputToInput response= new OutputToInput();
+          int value= businessClass.InputDivideOutput(request.getList());
+          response.setValue(value);
+          return ResponseEntity.ok(response);
+      }
 }

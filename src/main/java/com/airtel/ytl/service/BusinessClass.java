@@ -34,5 +34,15 @@ public class BusinessClass {
 
         return output;
     }
+
+    public Integer InputDivideOutput(List<Integer> list){
+        try{
+            System.out.println(" Division successfully performed");
+            return list.get(0)/list.get(1);
+        }catch(ArithmeticException e){
+            System.out.println("Division using this Divisior is not possible ");
+            return -1;
+        }
+    }
 }
 
