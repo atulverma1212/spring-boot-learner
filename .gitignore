@@ -6,6 +6,7 @@ target/
 
 ### Logs ###
 *.log
+ResponseFile.txt
 
 ### STS ###
 .apt_generated
