@@ -3,6 +3,7 @@ package com.airtel.ytl.controller;
 import com.airtel.ytl.dto.*;
 import com.airtel.ytl.service.BusinessClass;
 import com.airtel.ytl.service.FileWriterClass;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+
+
+
 @RestController
+@Slf4j
 public class HomeController {
 
     // TODO: Understand this
@@ -71,9 +76,10 @@ public class HomeController {
 
     @RequestMapping(value = "/ytl/writeInfile", method = RequestMethod.POST,
             consumes = {"application/json", "application/xml"})
-    public ResponseEntity<SaveInFileResponse> writeInFile(@RequestBody SaveInFileRequest request) {
+    public ResponseEntity<SaveInFileResponse> writeInFile(@RequestBody SaveInFileRequest request,
+                                                          @RequestParam String fileName) {
         SaveInFileResponse response = new SaveInFileResponse();
-        String replyFromFileWriter = fileWriterClass.writeFile(request.getMatrix());
+        String replyFromFileWriter = fileWriterClass.writeFile(request.getMatrix(), fileName);
         response.setResponse(replyFromFileWriter);
         return ResponseEntity.ok(response);
     }
@@ -81,10 +87,68 @@ public class HomeController {
     // TODO: return ResponseFile.txt as JSON
 
     @GetMapping(value = "/ytl/printResponseText")
-    public ResponseEntity<RetrieveFileResponse> retrieveFile() throws IOException {
+    public ResponseEntity<RetrieveFileResponse> retrieveFile(@RequestParam String fileName) throws IOException {
         RetrieveFileResponse response = new RetrieveFileResponse();
-        List<String> lines = businessClass.setResponseToList();
+        List<String> lines = businessClass.setResponseToList(fileName);
         response.setResponse(lines);
         return ResponseEntity.ok(response);
     }
+
+    // TODO: Appending Two Files Thread Safe
+
+    @GetMapping(value = "/ytl/retrieveAppendedFiles")
+    public ResponseEntity<RetrieveAppendedFilesResponse> retrieveAppendedFiles(@RequestParam String file1,
+                                                                               @RequestParam String file2) throws IOException {
+        //RetrieveAppendedFilesResponse response = new RetrieveAppendedFilesResponse();
+        Thread thread1 = new Thread(new ThreadClass(file1, file2));
+        Thread thread2 = new Thread(new ThreadClass(file1,file2));
+        thread1.start();
+        thread2.start();
+        //List<String> lines = businessClass.appendFiles(file1,file2);
+        //response.setResponse(lines);
+        return ResponseEntity.ok(globalResponse);
+    }
+
+    static RetrieveAppendedFilesResponse globalResponse = new RetrieveAppendedFilesResponse();
+
+    // Tryout method
+/*
+
+    @GetMapping(value = "ytl/appendAndReturnWithThread")
+    public ResponseEntity<RetrieveAppendedFilesResponse> retrieveWithThread() {
+        //static RetrieveAppendedFilesResponse response = new RetrieveAppendedFilesResponse();
+        Thread thread1 = new Thread(new ThreadClass());
+        Thread thread2 = new Thread(new ThreadClass());
+        thread1.start();
+        thread2.start();
+        return ResponseEntity.ok(globalResponse);
+    }
+*/
+
+    class ThreadClass implements Runnable {
+
+        String file1,file2;
+
+        public ThreadClass(String file1, String file2) {
+            this.file1 = file1;
+            this.file2 = file2;
+        }
+
+        @Override
+        public void run() {
+            try {
+                List<String> lines = businessClass.appendFiles(file1,file2);
+                globalResponse.setResponse(lines);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
+
+
+
+
+
+

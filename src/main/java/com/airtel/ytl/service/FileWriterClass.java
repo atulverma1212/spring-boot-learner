@@ -17,12 +17,12 @@ public class FileWriterClass {
     @Autowired
     BusinessClass businessClass;
 
-    public String writeFile(List<List<String>> matrix) {
+    public String writeFile(List<List<String>> matrix, String fileName) {
 
         //List<String> list = businessClass.matrixToList(matrix);
 
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter(Constants.filename, true));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
                 for (List<String> list : matrix) {
                     String line = businessClass.listToString(list);
                     writer.append(line);

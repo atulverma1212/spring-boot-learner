@@ -4,9 +4,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### Logs ###
+### Logs and txt files###
 *.log
-ResponseFile.txt
+*.txt
+
 
 ### STS ###
 .apt_generated

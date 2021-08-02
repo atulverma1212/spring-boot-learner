@@ -40,14 +40,14 @@ public class BusinessClass {
         return out;
     }
 
-    public List<String> setResponseToList() throws IOException {
+    public List<String> setResponseToList(String fileName) throws IOException {
         List<String> lines = new ArrayList<>();
         try {
-            lines = Files.readAllLines(Paths.get(Constants.filename));
-            logger.info("file retrieved successfully");
+            lines = Files.readAllLines(Paths.get(fileName));
+            logger.info("file {} retrieved successfully", fileName);
         }
         catch (NoSuchFileException e) {
-            lines.add("File doesn't exist");
+            lines.add("File " + fileName + " doesn't exist");
             //logger.error("File doesn't exist",e);
             throw e;
         }
@@ -58,4 +58,11 @@ public class BusinessClass {
         return lines;
     }
 
+
+    public List<String> appendFiles(String file1, String file2) throws IOException {
+        List<String> list1 = setResponseToList(file1);
+        List<String> list2 = setResponseToList(file2);
+        list1.addAll(list2);
+        return list1;
+    }
 }
